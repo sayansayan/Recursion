@@ -1,0 +1,28 @@
+/* Given an array of elements add the elemnts of the array using recursion */
+
+
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+//int res=0;
+
+void solve(vector<int>& arr,int& res) {
+    
+    if(arr.size() == 0)
+        return;
+        
+    res=res+arr[0];
+    vector<int> a(arr.begin()+1, arr.end());
+    solve(a,res);
+}
+
+// main drivert program
+
+int main() {
+    vector<int> a{1,2,3,4,5,9};
+    int res =0 ;
+    solve(a,res);
+    cout<< res;
+}
