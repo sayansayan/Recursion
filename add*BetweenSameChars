@@ -1,0 +1,55 @@
+/*
+Recursive program to insert a star between pair of identical characters
+Difficulty Level : Medium
+Last Updated : 27 May, 2021
+Given a string with repeated characters, we have to insert a star i.e.” * “ between pair of adjacent identical characters using recursion.
+ 
+
+Examples: 
+
+Want to learn from the best curated videos and practice problems, check out the C++ Foundation Course for Basic to Advanced C++ and C++ STL Course for the language and STL. To complete your preparation from learning a language to DS Algo and many more, please refer Complete Interview Preparation Course.
+Input : aabb 
+Output : a*ab*b
+
+Input : xxxy
+Output : x*x*xy 
+*/
+
+
+
+
+#include <iostream>
+#include<string>
+
+using namespace std;
+
+/*Input : s = "geeksforgeeks"
+        
+Output : s = "ge*eksforge*eks" */
+
+void insertstar(string s, string& res) {
+    if (s.size() == 0 )
+       return;
+    res.push_back(s[0]);
+    if(s.size() == 1) {
+       //res.push_back(s[0]) ;
+       return ;
+    }
+    
+    if(s[0] == s[1]) {
+        res.push_back('*');
+        
+    }
+  
+     insertstar(s.substr(1),res);
+}
+
+
+
+
+int main() {
+    string res;
+    insertstar("xxxy",res);
+    cout<<res;
+	return 0;
+}
