@@ -1,0 +1,47 @@
+/*
+Remove all occurrences of a character in a string | Recursive approach
+Difficulty Level : Medium
+Last Updated : 19 May, 2021
+Given string str, the task is to write a recursive program to remove all the occurrences of a character X in the string.
+
+Examples:
+
+
+
+Input: str = “geeksforgeeks”, c = ‘e’ 
+Output: gksforgks
+Input: str = “geeksforgeeks”, c = ‘g’ 
+Output: eeksforeeks 
+ */
+ 
+ 
+ #include <iostream>
+#include<string>
+
+using namespace std;
+
+/*Input : s = "geeksforgeeks"
+        c = 'e'
+Output : s = "gksforgks" */
+
+
+void removetarget(string s, char c, string& result) {
+    if(s.size() == 0)
+       return ;
+     
+    if(s[0]!=c)
+    {
+        result.push_back(s[0]);
+    }
+
+     return removetarget(s.substr(1),c, result);
+    
+}
+
+int main() {
+	string s="geeksforgeeks";
+	string result;
+	removetarget(s,'e', result);
+	cout<<result;
+	return 0;
+}
